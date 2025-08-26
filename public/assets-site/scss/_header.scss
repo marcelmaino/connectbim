@@ -1,0 +1,429 @@
+.menu-opened {
+    overflow: hidden;
+    .menu {
+        opacity: 1;
+        pointer-events: all;
+        aside {
+            top: 0;
+        }
+    }
+    header {
+        background: $neutral-400;
+        z-index: 2024;
+        border-bottom: 1px solid #323238;
+    }
+    .nav-icon {
+        span {
+            &:nth-child(1) {
+                top: 15px !important;
+                transform: rotate(45deg);
+                transition: 0.3s all;
+            }
+            &:nth-child(2) {
+                transition: 0.3s all;
+                transform: rotate(-45deg);
+            }
+            &:nth-child(3) {
+                left: 33px;
+                width: 0;
+                transition: 0.3s all;
+            }
+        }
+    }
+}
+
+header {
+    background: $white;
+    .top {
+        @include flex (row, center, space-between);
+        height: 4.8rem;
+        border-bottom: 1px solid hsla(240, 0%, 52%, 0.2);
+        .right {
+            display: flex;
+            gap: 1.6rem;
+            .info {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                .icon {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+            }
+        }
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 2.4rem;
+            .redes {
+                gap: 2.4rem;
+                display: flex;
+                align-items: center;
+            }
+        }
+        p {
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 112%;
+            color: $neutral-400;
+        }
+    }
+    nav {
+        @include flex(row, center, space-between);
+        height: 7.2rem;
+        .logo {
+            width: 100%;
+            max-width: 18rem;
+            img {
+                object-fit: cover;
+            }
+        }
+        ul {
+            display: flex;
+            gap: 4.8rem;
+            height: 100%;
+            align-items: center;
+            li {
+                height: 100%;
+                position: relative;
+                a, button {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    line-height: 112%;
+                    text-align: center;
+                    color: $neutral-400;
+                    height: 100%;
+                    position: relative;
+                    transition: all .3s;
+                    .icon-chevron {
+                        background-image: url(../img/icon-chevron-down.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 2.4rem;
+                        height: 2.4rem;
+                        transition: all .3s;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        height: 2px;
+                        background-color: $yellow;
+                        width: 100%;
+                        opacity: 0;
+                        transition: all .3s;
+                    }
+                    &:hover {
+                        color: $blue;
+                        .icon-chevron {
+                            transform: rotate(180deg);
+                            background-image: url(../img/icon-chevron-down_hover.svg);
+                        }
+                    }
+                }
+                .dropdown {
+                    position: absolute;
+                    top: 100%;
+                    left: -56px;
+                    height: max-content;
+                    width: auto;
+                    background: $yellow;
+                    z-index: 2;
+                    display: inherit;
+                    overflow: auto;
+                    display: none;
+                    li {
+                        display: inline-block;
+                        height: 4.8rem;
+                        padding: 0 3.2rem;
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        white-space: nowrap;
+                        transition: all .3s;
+                        &:hover {
+                            background: hsl(33, 100%, 26%);
+                            transition: all .3s;
+                            &:focus {
+                                background: hsl(33, 100%, 50%);
+                            }
+                        }
+                        a {
+                            font-size: 1.4rem;
+                            line-height: 125%;
+                            color: $white;
+                        }
+                    }
+                }
+                .active {
+                    color: $blue;
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+                &:hover {
+                    .dropdown {
+                        opacity: 1;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .btn-menu {
+        padding: 2.4rem 0 2.4rem 4.8rem;
+        display: flex;
+        gap: 1.6rem;
+        border-left: 1px solid hsla(0, 0%, 100%, 0.2);
+        align-items: center;
+        display: none;
+        p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all .3s;
+        }
+    }
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        display: block;
+        padding: 0;
+        position: relative;
+        span {
+            display: block;
+            height: 2px;
+            background-color: $blue;
+            position: absolute;
+            right: 4px;
+            border-radius: 100px;
+            &:nth-child(1) {
+                top: 7px;
+                width: 24px;
+                transition: 0.3s all;
+            }
+            &:nth-child(2) {
+                top: 15px;
+                width: 24px;
+                transition: 0.3s all;
+            }
+            &:nth-child(3) {
+                width: 16px;
+                top: 23px;
+                transition: 0.3s all;
+            }
+        }
+    }
+    @include responsive(480px) {
+        nav ul, .top {
+            display: none;
+        }
+        .btn-menu {
+            display: flex;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2023;
+    opacity: 1;
+    pointer-events: none;
+    transition: all .3s;
+    opacity: 0;
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: hsla(0, 0%, 0%, 0.4);
+        z-index: 0;
+    }
+    aside {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background: $blue;
+        padding: 18rem 3rem 0;
+        .logo {
+            background: url(../img/logo.png);
+            width: 3.8rem;
+            height: 3.2rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .3s;
+            margin-bottom: 3.2rem;
+            display: none;
+        }
+        ul {
+            display: flex;
+            flex-flow: column;
+            gap: 0.4rem;
+            margin-left: 15%;
+            position: relative;
+            width: max-content;
+            .main {
+                display: flex;
+                flex-flow: row !important;
+            }
+            li {
+                display: flex;
+                flex-flow: column;
+                gap: 0.4rem;
+                font-size: 1.6rem;
+                line-height: 125%;
+                .link-main {
+                    font-size: 2.4rem;
+                    line-height: 125%;
+                    margin-bottom: 4.8rem;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    color: $white;
+                    gap: 0.8rem;
+                    cursor: pointer;
+                    transition: all .3s;
+                    .chevron {
+                        background-image: url(../img/icon-white-arrow-down.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 2.4rem;
+                        height: 2.4rem;
+                        transition: all .3s;
+                    }
+                    &:hover {
+                        .chevron {
+                            background-image: url(../img/icon-white-arrow-down_hover.svg);
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+                &:hover {
+                    ul {
+                        display: block;
+                    }
+                }
+                .submenu {
+                    position: absolute;
+                    margin: 0;
+                    left: 100%;
+                    top: 0;
+                    padding: 8rem 4.8rem;
+                }
+                ul {
+                    display: none;
+                    .link-submenu {
+                        font-size: 1.6rem;
+                        line-height: 125%;
+                        font-weight: 400;
+                        margin-bottom: 2.4rem;
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .infos {
+            display: flex;
+            align-items: flex-start;
+            gap: 4.8rem;
+            margin-left: 15%;
+            .redes {
+                h3 {
+                    font-size: 2.4rem;
+                    line-height: 125%;
+                    font-weight: 500;
+                    margin-bottom: 1.6rem;
+                }
+                .links {
+                    display: flex;
+                    align-items: center;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.8rem;
+                        font-size: 1.6rem;
+                        line-height: 125%;
+                        font-weight: 400;
+                        &:not(:last-child) {
+                            margin-right: 1.6rem;
+                        }
+                    }
+                }
+            }
+            .contato {
+                h3 {
+                    font-size: 2.4rem;
+                    line-height: 125%;
+                    font-weight: 500;
+                    margin-bottom: 1.6rem;
+                }
+                p {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.8rem;
+                    font-size: 1.6rem;
+                    line-height: 150%;
+                    &:not(:last-child) {
+                        margin-bottom: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive(480px) {
+        aside {
+            padding: 14rem 5% 0;
+            ul {
+                margin: 0;
+                .main {
+                    flex-flow: column !important;
+                }
+                li {
+                    .link-main {
+                        margin-bottom: 3rem;
+                    }
+                    .submenu {
+                        position: relative;
+                        left: inherit;
+                        margin-bottom: 3rem;
+                        padding: 0 3rem 0 0;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive-min(1920px) {
+        aside {
+            padding: 24rem 3rem 0;
+            ul {
+                li {
+                    .link-main {
+                        font-size: 4.8rem;
+                        margin-bottom: 4.8rem;
+                        .chevron {
+                            width: 4.8rem;
+                            height: 4.8rem;
+                        }
+                    }
+                    ul {
+                        .link-submenu {
+                            font-size: 3rem;
+                            margin-bottom: 4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

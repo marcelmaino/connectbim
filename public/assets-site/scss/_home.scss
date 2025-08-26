@@ -1,0 +1,422 @@
+.s-institucional {
+    height: 85rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        position: relative;
+    }
+    .right {
+        width: 100%;
+        max-width: 59.2rem;
+        .title {
+            margin-bottom: 1.6rem;
+            h3 {
+                font-weight: 500;
+                font-size: 2rem;
+                line-height: 125%;
+                color: $neutral-400;
+                margin-bottom: 0.4rem;
+            }
+            h2 {
+                font-weight: 600;
+                font-size: 4.8rem;
+                line-height: 125%;
+                color: $blue;
+            }
+        }
+        .text {
+            margin-bottom: 4rem;
+            p {
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 150%;
+                color: #858586;
+            }
+        }
+        .infos {
+            display: flex;
+            gap: 3.2rem;
+            .info {
+                width: 100%;
+                max-width: 28rem;
+                background: $white;
+                height: 9rem;
+                border-radius: 0.8rem;
+                border: 2px solid $yellow;
+                display: flex;
+                justify-content: center;
+                padding: 0 2.4rem;
+                flex-flow: column;
+                h3 {
+                    font-weight: 600;
+                    font-size: 2.4rem;
+                    line-height: 150%;
+                    color: $blue;
+                    .n-projetos {
+                        animation: counterProjetos 5s ease-in-out;
+                        animation-iteration-count: 1;
+                        counter-reset: numProjetos var(--numProjetos);
+                    }
+                    .n-projetos::after {
+                        content: counter(numProjetos);
+                    }
+                    .n-anos {
+                        animation: counterAnos 3s ease-in-out;
+                        animation-iteration-count: 1;
+                        counter-reset: numAnos var(--numAnos);
+                    }
+                    .n-anos::after {
+                        content: counter(numAnos);
+                    }
+                }
+                p {
+                    font-weight: 400;
+                    font-size: 1.6rem;
+                    line-height: 150%;
+                    color: $neutral-400;
+                }
+            }
+        }
+    }
+    .left {
+        width: 100%;
+        max-width: 48.8rem;
+        position: relative;
+        .image{
+            height: 58.6rem;
+            position: relative;
+            max-width: 48.8rem;
+            overflow: hidden;
+            .engenheiro {
+                position: absolute;
+                left: 4.3rem;
+                bottom: 0;
+                z-index: 1;
+                animation: 6s infinite zoom-in;
+            }
+            .fundo {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 0;
+                border: 2px solid $yellow;
+                border-radius: 0.8rem;
+                background: $yellow;
+            }
+        }
+        .link {
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 150%;
+            color: $yellow;
+            width: 100%;
+            display: flex;
+            margin-top: 2.4rem;
+            justify-content: flex-end;
+            padding-right: 6rem;
+            transition: all .3s;
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+    .detalhe-1 {
+        position: absolute;
+        top: 56.6rem;
+        width: 80%;
+        background-color: $yellow;
+        height: 2px;
+        z-index: -1;
+    }
+    .detalhe-2 {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        right: 40px;
+        width: 0.2rem;
+        background-color: $yellow;
+        z-index: -1;
+    }
+    .detalhe-3 {
+        position: absolute;
+        bottom: 0;
+        height: 28.3rem;
+        left: 5rem;
+        z-index: -1;
+        width: 0.2rem;
+        background-color: $yellow;
+    }
+    @include responsive(480px) {
+        height: auto;
+        .container {
+            flex-flow: column;
+        }
+        .right {
+            padding-top: 3rem;
+            padding-bottom: 8rem;
+            .text {
+                margin-bottom: 3rem;
+            }
+            .infos {
+                flex-flow: column;
+                gap: 3rem;
+                .info {
+                    max-width: 100%;
+                }
+            }
+        }
+        .left {
+            display: none;
+        }
+        .detalhe-1, .detalhe-3 {
+            display: none;
+        }
+        .detalhe-2 {
+            position: absolute;
+            left: 4.8rem;
+            width: 2px;
+            height: 29rem;
+            top: 36rem;
+            background: $yellow;
+        }
+    }
+}
+
+.s-servicos {
+    background-color: $white;
+    .container {
+        padding: 12rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        height: 100%;
+    }
+    .detalhe {
+        position: absolute;
+        top: 0;
+        border-radius: 0.8rem;
+        margin-top: -3.5rem;
+        background: $yellow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.1rem;
+        img {
+            animation: move-up 3s infinite;
+        }
+    }
+    .right {
+        width: 100%;
+        max-width: 38.4rem;
+        .title {
+            margin-bottom: 1.6rem;
+            h3 {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 125%;
+                color: $neutral-400;
+                margin-bottom: 0.4rem;
+            }
+            h2 {
+                font-weight: 600;
+                font-size: 48px;
+                line-height: 125%;
+                color: $blue;
+            }
+        }
+        .text {
+            margin-bottom: 2.4rem;
+            p {
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 150%;
+                color: $neutral-400;
+            }
+        }
+    }
+    .left {
+        width: 100%;
+        max-width: 70rem;
+    }
+    @include responsive(480px) {
+        .container {
+            padding: 6rem 1.5rem 3rem;
+            flex-flow: column;
+            gap: 3rem;
+        }
+    }
+}
+
+.s-projetos {
+    position: relative;
+    .detalhe-2 {
+        position: absolute;
+        left: 0;
+        top: 43rem;
+        height: 2px;
+        width: 30%;
+        background-color: $yellow;
+    }
+    .container {
+        padding: 12rem 1.5rem;
+        position: relative;
+    }
+    .detalhe {
+        position: absolute;
+        right: 4rem;
+        top: 0;
+        height: 30.7rem;
+        width: 2px;
+        background-color: $yellow;
+    }
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6.4rem;
+        h2 {
+            font-weight: 600;
+            font-size: 4.8rem;
+            line-height: 125%;
+            color: $blue;
+            width: 100%;
+            max-width: 59.2rem;
+        }
+        p {
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 150%;
+            color: $neutral-400;
+            width: 100%;
+            max-width: 45.7rem;
+            margin-right: 6.2rem;
+        }
+    }
+    @include responsive(480px) {
+        .container {
+            padding: 3rem 1.5rem;
+        }
+        .title {
+            flex-flow: column;
+            margin-bottom: 3rem;
+            gap: 0.8rem;
+            h2 {
+                font-size: 3.2rem;
+            }
+            p {
+                margin-right: 0;
+            }
+        }
+        .detalhe {
+            display: none;
+        }
+        .detalhe-2 {
+            top: 34.4rem;
+        }
+    }
+}
+
+.s-obras {
+    .title {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 8rem;
+        .right {
+            width: 100%;
+            max-width: 40rem;
+            h3 {
+                font-weight: 500;
+                font-size: 2rem;
+                line-height: 125%;
+                color: $neutral-400;
+                margin-bottom: 0.4rem;
+            }
+            h2 {
+                font-weight: 600;
+                font-size: 4.8rem;
+                line-height: 125%;
+                color: $blue;
+            }
+        }
+    }
+    .obras {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .obra {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            .image {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .info {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: hsla(0, 0%, 0%, 0.7);
+                z-index: 2;
+                pointer-events: none;
+                opacity: 0;
+                transition: all .6s ease-in;
+                h3 {
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    line-height: 150%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: $white;
+                }
+            }
+            &:hover {
+                .info {
+                    top: 0;
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        }
+    }
+    @include responsive(480px) {
+        .title {
+            flex-flow: column;
+            margin-bottom: 3rem;
+            gap: 3rem;
+            .right {
+                h3 {
+                    font-size: 1.6rem;
+                    text-align: center;
+                }
+                h2 {
+                    font-size: 3.2rem;
+                    text-align: center;
+                }
+            }
+            .left {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .obras {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

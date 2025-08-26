@@ -1,0 +1,53 @@
+@keyframes zoom-in {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes move-up {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(0.8rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@property --numProjetos {
+    syntax: "<integer>";
+    initial-value: 76;
+    inherits: false;
+}
+
+@keyframes counterProjetos {
+    0% {
+        --numProjetos: 0;
+    }
+    100% {
+        --numProjetos: 76;
+    }
+}
+
+@property --numAnos {
+    syntax: "<integer>";
+    initial-value: 16;
+    inherits: false;
+}
+
+@keyframes counterAnos {
+    0% {
+        --numAnos: 0;
+    }
+    100% {
+        --numAnos: 16;
+    }
+}
